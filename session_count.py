@@ -4,6 +4,7 @@ import glob
 import time
 import sys
 import pandas as pd
+import numpy as np
 
 from datetime import datetime, timedelta
 
@@ -24,11 +25,16 @@ for file in file_list:
     data = pd.read_json(file, orient="records", lines=True)
     dfs.append(data)
 
-df = pd.concat(dfs, ignore_index=True)
+df = pd.concat(dfs, ignore_index=True)  # combine all dataframes as one dataframe
 
 def session_count(input):
+
     # modify timestamp when it is in microseconds
     df.loc[df.device_sent_timestamp > 10 ** 11, 'device_sent_timestamp'] = df[['device_sent_timestamp']] / 1000
+
+    # drop the empty id
+    df['anonymous_id'].replace('', np.nan, inplace=True)
+    df.dropna(subset=['anonymous_id'], inplace=True)
 
     df_clean = df.sort_values(by=['anonymous_id', 'device_sent_timestamp'])
     df_clean[['diff_gap']] = df_clean[['device_sent_timestamp']] - df_clean[['device_sent_timestamp']].shift()

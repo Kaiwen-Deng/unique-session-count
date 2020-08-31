@@ -7,6 +7,7 @@ A simple script for counting number of unique sessions in each ` browser`, `oper
 
 ## Dependencies
 - pip install pandas
+- pip install numpy
 - put data sets in `json` format in [data](data/) folder (you can put multiple json files)
 
 ## Usage
