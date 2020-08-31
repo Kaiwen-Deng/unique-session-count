@@ -10,7 +10,13 @@ A simple script for counting number of unique sessions in each ` browser`, `oper
 - put data sets in `json` format in [data](data/) folder (you can put multiple json files)
 
 ## Usage
-
+- clone the repo:
+```
+git clone https://github.com/Kaiwen-Deng/unique-session-count.git
+```
+- go to the repo;
+- in the repo, put the data sets you want to calculate in [data](data/) folder;
+- use the player.sh in command terminal: 
 ```bash
 Usage: ./player.sh <field>
 ```
