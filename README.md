@@ -20,7 +20,7 @@ git clone https://github.com/Kaiwen-Deng/unique-session-count.git
 ```bash
 Usage: ./player.sh <field>
 ```
-Options: specify the field to count session. The field could be one of following:
+Options: specify the field to count session. The field could be one of followings:
 - `browser_family`
 - `os_family`
 - `device_family`
